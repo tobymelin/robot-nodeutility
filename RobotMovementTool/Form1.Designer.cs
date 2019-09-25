@@ -191,6 +191,7 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Move/Copy";
+            this.TopMost = true;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
