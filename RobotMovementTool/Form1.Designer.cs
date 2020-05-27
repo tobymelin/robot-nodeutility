@@ -40,17 +40,20 @@
             this.radioRelative = new System.Windows.Forms.RadioButton();
             this.radioAbsolute = new System.Windows.Forms.RadioButton();
             this.buttonGetCoords = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // radioButtonMove
             // 
             this.radioButtonMove.AutoSize = true;
             this.radioButtonMove.Checked = true;
-            this.radioButtonMove.Location = new System.Drawing.Point(12, 19);
+            this.radioButtonMove.Location = new System.Drawing.Point(16, 23);
+            this.radioButtonMove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButtonMove.Name = "radioButtonMove";
-            this.radioButtonMove.Size = new System.Drawing.Size(52, 17);
+            this.radioButtonMove.Size = new System.Drawing.Size(63, 21);
             this.radioButtonMove.TabIndex = 0;
             this.radioButtonMove.TabStop = true;
             this.radioButtonMove.Text = "Move";
@@ -59,18 +62,20 @@
             // radioButtonCopy
             // 
             this.radioButtonCopy.AutoSize = true;
-            this.radioButtonCopy.Location = new System.Drawing.Point(12, 42);
+            this.radioButtonCopy.Location = new System.Drawing.Point(16, 52);
+            this.radioButtonCopy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioButtonCopy.Name = "radioButtonCopy";
-            this.radioButtonCopy.Size = new System.Drawing.Size(49, 17);
+            this.radioButtonCopy.Size = new System.Drawing.Size(61, 21);
             this.radioButtonCopy.TabIndex = 1;
             this.radioButtonCopy.Text = "Copy";
             this.radioButtonCopy.UseVisualStyleBackColor = true;
             // 
             // buttonExecute
             // 
-            this.buttonExecute.Location = new System.Drawing.Point(118, 40);
+            this.buttonExecute.Location = new System.Drawing.Point(140, 76);
+            this.buttonExecute.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonExecute.Name = "buttonExecute";
-            this.buttonExecute.Size = new System.Drawing.Size(75, 23);
+            this.buttonExecute.Size = new System.Drawing.Size(100, 28);
             this.buttonExecute.TabIndex = 2;
             this.buttonExecute.Text = "Execute";
             this.buttonExecute.UseVisualStyleBackColor = true;
@@ -79,9 +84,10 @@
             // buttonClose
             // 
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonClose.Location = new System.Drawing.Point(118, 69);
+            this.buttonClose.Location = new System.Drawing.Point(140, 112);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.Size = new System.Drawing.Size(100, 28);
             this.buttonClose.TabIndex = 3;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -89,9 +95,10 @@
             // 
             // coordInput
             // 
-            this.coordInput.Location = new System.Drawing.Point(13, 13);
+            this.coordInput.Location = new System.Drawing.Point(7, 22);
+            this.coordInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.coordInput.Name = "coordInput";
-            this.coordInput.Size = new System.Drawing.Size(134, 20);
+            this.coordInput.Size = new System.Drawing.Size(149, 22);
             this.coordInput.TabIndex = 0;
             // 
             // comboBoxCoords
@@ -103,18 +110,21 @@
             "X",
             "Y",
             "Z"});
-            this.comboBoxCoords.Location = new System.Drawing.Point(155, 13);
+            this.comboBoxCoords.Location = new System.Drawing.Point(164, 20);
+            this.comboBoxCoords.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxCoords.Name = "comboBoxCoords";
-            this.comboBoxCoords.Size = new System.Drawing.Size(49, 21);
+            this.comboBoxCoords.Size = new System.Drawing.Size(64, 24);
             this.comboBoxCoords.TabIndex = 6;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButtonMove);
             this.groupBox1.Controls.Add(this.radioButtonCopy);
-            this.groupBox1.Location = new System.Drawing.Point(12, 39);
+            this.groupBox1.Location = new System.Drawing.Point(16, 75);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(80, 71);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(107, 87);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit Mode";
@@ -124,9 +134,11 @@
             this.groupBox2.Controls.Add(this.radioRelativeNode);
             this.groupBox2.Controls.Add(this.radioRelative);
             this.groupBox2.Controls.Add(this.radioAbsolute);
-            this.groupBox2.Location = new System.Drawing.Point(12, 127);
+            this.groupBox2.Location = new System.Drawing.Point(16, 183);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(193, 92);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(235, 113);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Coordinate Options";
@@ -134,19 +146,21 @@
             // radioRelativeNode
             // 
             this.radioRelativeNode.AutoSize = true;
-            this.radioRelativeNode.Location = new System.Drawing.Point(11, 66);
+            this.radioRelativeNode.Location = new System.Drawing.Point(15, 81);
+            this.radioRelativeNode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioRelativeNode.Name = "radioRelativeNode";
-            this.radioRelativeNode.Size = new System.Drawing.Size(105, 17);
+            this.radioRelativeNode.Size = new System.Drawing.Size(160, 21);
             this.radioRelativeNode.TabIndex = 7;
-            this.radioRelativeNode.Text = "Relative to Node";
+            this.radioRelativeNode.Text = "Relative to Node No.";
             this.radioRelativeNode.UseVisualStyleBackColor = true;
             // 
             // radioRelative
             // 
             this.radioRelative.AutoSize = true;
-            this.radioRelative.Location = new System.Drawing.Point(11, 42);
+            this.radioRelative.Location = new System.Drawing.Point(15, 52);
+            this.radioRelative.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioRelative.Name = "radioRelative";
-            this.radioRelative.Size = new System.Drawing.Size(123, 17);
+            this.radioRelative.Size = new System.Drawing.Size(160, 21);
             this.radioRelative.TabIndex = 6;
             this.radioRelative.Text = "Relative Coordinates";
             this.radioRelative.UseVisualStyleBackColor = true;
@@ -155,9 +169,10 @@
             // 
             this.radioAbsolute.AutoSize = true;
             this.radioAbsolute.Checked = true;
-            this.radioAbsolute.Location = new System.Drawing.Point(11, 19);
+            this.radioAbsolute.Location = new System.Drawing.Point(15, 23);
+            this.radioAbsolute.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioAbsolute.Name = "radioAbsolute";
-            this.radioAbsolute.Size = new System.Drawing.Size(125, 17);
+            this.radioAbsolute.Size = new System.Drawing.Size(164, 21);
             this.radioAbsolute.TabIndex = 5;
             this.radioAbsolute.TabStop = true;
             this.radioAbsolute.Text = "Absolute Coordinates";
@@ -165,29 +180,43 @@
             // 
             // buttonGetCoords
             // 
-            this.buttonGetCoords.Location = new System.Drawing.Point(118, 98);
+            this.buttonGetCoords.Location = new System.Drawing.Point(140, 148);
+            this.buttonGetCoords.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonGetCoords.Name = "buttonGetCoords";
-            this.buttonGetCoords.Size = new System.Drawing.Size(75, 23);
+            this.buttonGetCoords.Size = new System.Drawing.Size(100, 28);
             this.buttonGetCoords.TabIndex = 9;
             this.buttonGetCoords.Text = "Get Coords.";
             this.buttonGetCoords.UseVisualStyleBackColor = true;
             this.buttonGetCoords.Click += new System.EventHandler(this.ButtonGetCoords_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.coordInput);
+            this.groupBox3.Controls.Add(this.comboBoxCoords);
+            this.groupBox3.Location = new System.Drawing.Point(12, 12);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(237, 54);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Coordinate Input";
+            // 
             // Form1
             // 
             this.AcceptButton = this.buttonExecute;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonClose;
-            this.ClientSize = new System.Drawing.Size(218, 231);
+            this.ClientSize = new System.Drawing.Size(269, 314);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.buttonGetCoords);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.comboBoxCoords);
-            this.Controls.Add(this.coordInput);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonExecute);
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Move/Copy";
@@ -196,8 +225,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -215,6 +245,7 @@
         private System.Windows.Forms.RadioButton radioRelative;
         private System.Windows.Forms.RadioButton radioAbsolute;
         private System.Windows.Forms.Button buttonGetCoords;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
 

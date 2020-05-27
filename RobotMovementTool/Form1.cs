@@ -25,16 +25,17 @@ namespace RobotMovementTool
         {
             InitializeComponent();
 
+            // Add version number to dialog title
             this.Text += " v" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
+            // Set default selection in list box
             comboBoxCoords.SelectedIndex = 0;
-
         }
 
         private void ButtonExecute_Click(object sender, EventArgs e)
         {
             iapp = new RobotApplication();
-
+            
             if (iapp.Project.IsActive == 0)
                 return;
 
@@ -197,6 +198,7 @@ namespace RobotMovementTool
         }
     }
 
+    // Helper class Vctr
     public class Vctr
     {
         public double X, Y, Z;
