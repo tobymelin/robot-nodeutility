@@ -12,6 +12,7 @@ namespace RobotMovementTool
         RobotNodeServer nodes;
         RobotBarServer bars;
         RobotSelection selection;
+        Helpers helpers = new Helpers();
 
         public MainWindow()
         {
@@ -59,6 +60,7 @@ namespace RobotMovementTool
 
             Vctr movementVector = new Vctr();
             string str_coord;
+            double[] validatedCoordsList = { 0, 0, 0 };
             selection = structure.Selections.Get(IRobotObjectType.I_OT_NODE);
 
             if (selection.Count == 0)
@@ -73,7 +75,7 @@ namespace RobotMovementTool
             {
                 try
                 {
-                    str_coord = ReturnCoordString(ValidateNodeID(coordInput.Text), comboBoxCoords.Text);
+                    str_coord = ReturnCoordString(helpers.ValidateNodeID(coordInput.Text), comboBoxCoords.Text);
                 }
                 catch (ArgumentOutOfRangeException)
                 {
@@ -87,7 +89,35 @@ namespace RobotMovementTool
                 }
             }
             else
+            {
                 str_coord = coordInput.Text.Replace(" ", "");
+
+                // Validate coordinate inputs before any changes are made
+                try
+                {
+                    if (comboBoxCoords.SelectedItem.ToString() == "XYZ")
+                    {
+                        for (int i = 0; i < 3; i++)
+                        {
+                            validatedCoordsList[i] = helpers.ValidateSingleCoord(str_coord, i);
+                        }
+                    }
+                    else
+                    {
+                        if (str_coord.Contains(",")) {
+                            ErrorDialog("Please enter a single coordinate into the input field", "ERROR: Invalid Coordinates");
+                            return;
+                        }
+                        else
+                            validatedCoordsList[0] = helpers.ValidateSingleCoord(str_coord);
+                    }
+                }
+                catch (ArgumentException)
+                {
+                    ErrorDialog("Invalid coordinates input in text box. Please use a format of 'x,y,z'", "ERROR: Invalid Coordinates");
+                    return;
+                }
+            }
 
             for (int i = 1; i <= selection.Count; i++)
             {
@@ -97,23 +127,15 @@ namespace RobotMovementTool
                 movementVector.Y = node.Y;
                 movementVector.Z = node.Z;
 
-                try
+                if (comboBoxCoords.SelectedItem.ToString() == "XYZ")
                 {
-                    if (comboBoxCoords.SelectedItem.ToString() == "XYZ")
+                    for (int j = 0; j < 3; j++)
                     {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            movementVector.Move(j.ToString(), ValidateSingleCoord(str_coord, j), radioRelative.Checked);
-                        }
+                        movementVector.Move(j, validatedCoordsList[j], radioRelative.Checked);
                     }
-                    else
-                        movementVector.Move(comboBoxCoords.SelectedItem.ToString(), ValidateSingleCoord(str_coord), radioRelative.Checked);
                 }
-                catch (ArgumentException)
-                {
-                    ErrorDialog("Invalid coordinates input in text box", "ERROR: Invalid Coordinates");
-                    return;
-                }
+                else
+                    movementVector.Move(comboBoxCoords.SelectedItem.ToString(), validatedCoordsList[0], radioRelative.Checked);
 
                 if (radioButtonMove.Checked)
                 {
@@ -126,51 +148,6 @@ namespace RobotMovementTool
             }
 
             MessageBox.Show("Finished modifying " + selection.Count + " nodes.", "Action Completed");
-        }
-
-        /*
-         * ValidateSingleCoord
-         * - str_coord: a string of coordinates, can be a single value or comma-separated
-         * - idx: integer specifying which part of a comma-separated list to return,
-         *      defaults to 0
-         *
-         * Helper function to validate and return coordinate inputs
-         */
-        private double ValidateSingleCoord(string str_coord, int idx = 0)
-        {
-            double output;
-            Regex coordRegEx = new Regex(@"[^0-9,.]");
-
-            if (coordRegEx.Match(str_coord.Trim()).Success)
-                throw new ArgumentException();
-
-            str_coord = str_coord.Replace(" ", "");
-
-            string[] str_coord_split = str_coord.Split(',');
-
-            if (!Double.TryParse(str_coord_split[idx], out output))
-                throw new ArgumentException();
-
-            return output;
-        }
-
-        /*
-         * ValidateNodeID
-         * - input: string containing a node number
-         *
-         * Helper function used to parse node numbers.
-         * Throws an ArgumentException if the string does
-         * not contain a valid node number.
-         */
-        private int ValidateNodeID(string input)
-        {
-            Regex nodeRegEx = new Regex(@"[^0-9]");
-            input = input.Trim();
-
-            if (input.Length == 0 || nodeRegEx.Match(input).Success)
-                throw new ArgumentException();
-
-            return int.Parse(input);
         }
 
         /*
@@ -241,7 +218,7 @@ namespace RobotMovementTool
                 // the node number which has been input, otherwise return the
                 // coords for the first node in the selection.
                 if (radioRelativeNode.Checked)
-                    nodeNumber = ValidateNodeID(coordInput.Text);
+                    nodeNumber = helpers.ValidateNodeID(coordInput.Text);
                 else
                     nodeNumber = selection.Get(1);
 
@@ -300,6 +277,11 @@ namespace RobotMovementTool
             }
         }
 
+        public void Move(int axis, double dist, bool relative = true)
+        {
+            Move(axis.ToString(), dist, relative);
+        }
+
         public override String ToString()
         {
             return String.Format("{0},{1},{2}", X, Y, Z);
@@ -309,14 +291,29 @@ namespace RobotMovementTool
         {
             Vctr vector = obj as Vctr;
             return (vector != null)
-            && (X == vector.X)
-            && (Y == vector.Y)
-            && (Z == vector.Z);
+            && Equals(vector.X, vector.Y, vector.Z);
         }
 
+        /*
+         * Implement Equals with an allowable tolerance of 
+         * 0.001% to allow for slight inaccuracies due to
+         * limitations with precision.
+         */
         public bool Equals(double cX, double cY, double cZ)
         {
-            return (X == cX) && (Y == cY) && (Z == cZ);
+            double tolerance = .001 / 100;
+            bool checkX, checkY, checkZ;
+
+            checkX = Math.Abs(X - cX) <= tolerance;
+            checkY = Math.Abs(Y - cY) <= tolerance;
+            checkZ = Math.Abs(Z - cZ) <= tolerance;
+
+            return checkX && checkY && checkZ;
+        }
+
+        public override int GetHashCode()
+        {
+            return Tuple.Create(X, Y, Z).GetHashCode();
         }
     }
 }
