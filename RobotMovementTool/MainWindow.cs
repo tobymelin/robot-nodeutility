@@ -299,5 +299,24 @@ namespace RobotMovementTool
                     Z = dist;
             }
         }
+
+        public override String ToString()
+        {
+            return String.Format("{0},{1},{2}", X, Y, Z);
+        }
+
+        public override bool Equals(object obj)
+        {
+            Vctr vector = obj as Vctr;
+            return (vector != null)
+            && (X == vector.X)
+            && (Y == vector.Y)
+            && (Z == vector.Z);
+        }
+
+        public bool Equals(double cX, double cY, double cZ)
+        {
+            return (X == cX) && (Y == cY) && (Z == cZ);
+        }
     }
 }
