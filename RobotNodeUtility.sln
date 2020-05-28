@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29020.237
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotMovementTool", "RobotMovementTool\RobotMovementTool.csproj", "{35291C89-5181-4F33-A2B9-FD1BB34DD745}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotNodeUtility", "RobotNodeUtility\RobotNodeUtility.csproj", "{35291C89-5181-4F33-A2B9-FD1BB34DD745}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotMovementToolTest", "RobotMovementToolTest\RobotMovementToolTest.csproj", "{63544563-16F2-47DB-B3C2-91D9F2865851}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RobotNodeUtilityTest", "RobotNodeUtilityTest\RobotNodeUtilityTest.csproj", "{A0714C6A-A679-4BE2-A39B-9507B6AB7F1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{35291C89-5181-4F33-A2B9-FD1BB34DD745}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35291C89-5181-4F33-A2B9-FD1BB34DD745}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35291C89-5181-4F33-A2B9-FD1BB34DD745}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63544563-16F2-47DB-B3C2-91D9F2865851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63544563-16F2-47DB-B3C2-91D9F2865851}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63544563-16F2-47DB-B3C2-91D9F2865851}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63544563-16F2-47DB-B3C2-91D9F2865851}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0714C6A-A679-4BE2-A39B-9507B6AB7F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0714C6A-A679-4BE2-A39B-9507B6AB7F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0714C6A-A679-4BE2-A39B-9507B6AB7F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0714C6A-A679-4BE2-A39B-9507B6AB7F1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

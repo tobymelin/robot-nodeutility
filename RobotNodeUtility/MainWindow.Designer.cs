@@ -1,4 +1,4 @@
-﻿namespace RobotMovementTool
+﻿namespace RobotNodeUtility
 {
     partial class MainWindow
     {
@@ -180,9 +180,9 @@
             this.groupBox3.Controls.Add(this.coordInput);
             this.groupBox3.Controls.Add(this.comboBoxCoords);
             this.groupBox3.Location = new System.Drawing.Point(9, 10);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(178, 44);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
@@ -194,17 +194,21 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonClose;
-            this.ClientSize = new System.Drawing.Size(202, 255);
+            this.ClientSize = new System.Drawing.Size(199, 252);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.buttonGetCoords);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonExecute);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MainWindow";
             this.ShowIcon = false;
-            this.Text = "Move/Copy";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.Text = "Node Utility";
             this.TopMost = true;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

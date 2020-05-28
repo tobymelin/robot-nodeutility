@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RobotMovementTool.Properties
+namespace RobotNodeUtility.Properties
 {
 
 

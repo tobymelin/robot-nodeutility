@@ -1,10 +1,10 @@
-# Robot - MovementTool
-
-![UI Preview](preview.png)
+# Robot - Node Utility
 
 This extension for Robot Structural Analysis (RSA) was developed to provide an easier way of aligning and editing nodes than what was allowed in the default interface.
 
 The extension has been tested with RSA 2019 and upwards, but may work for older versions.
+
+![UI Preview](preview.png)
 
 ## Changelog
 
